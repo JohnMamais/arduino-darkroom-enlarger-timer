@@ -1,3 +1,11 @@
+/*
+* This project is part of a DIY darkroom enlarger timer.
+* It is licensed under the GNU General Public License V3 License.
+*
+* Copyright (c) 20025 Ioannis Mamais
+*
+*/
+
 #include "LedControl.h"
 #include <Wire.h>
 
