@@ -1,3 +1,4 @@
+/*
 #define DEBUG 1
 
 #if DEBUG
@@ -53,7 +54,7 @@ void setup() {
   pinMode(SUB_SEC, INPUT);
   pinMode(ADD_SEC, INPUT);
 
-  /*
+  
   
   // The MAX72XX is in power-saving mode on startup,
   // we have to do a wakeup call
@@ -66,7 +67,7 @@ void setup() {
 
   displayTime(time);
   
-  */
+  
 
   Serial.begin(9600);
   debug("Setup complete");
@@ -78,7 +79,7 @@ void loop() {
 
   // Prioritize countdown
   // If countdown is running, update the display every second
-  /*if (countdownRunning) {
+  if (countdownRunning) {
     
     // Only update every second
     if (currentMillis - previousMillis >= 1000) {
@@ -97,7 +98,7 @@ void loop() {
 
       displayTime(time_c); // Update the display
     }
-  } else {*/
+  } else {
     // Check if button is pressed to start the countdown
     if (digitalRead(START_BUTTON) == HIGH) {
       debug("timer started");
@@ -144,14 +145,12 @@ void loop() {
 }
 
 
-/* 
 void displayTime(int x) {
   tm.display(0, (x / 1000) % 10);
   tm.display(1, (x / 100) % 10);
   tm.display(2, (x / 10) % 10);
   tm.display(3, x % 10);
 }
-*/
 
 void displayTime(int x) {
   int minutes = x / 60;
@@ -191,3 +190,4 @@ void toggleEnlarger(){
     digitalWrite(RELAY_PIN, HIGH);
   }
 }
+*/
