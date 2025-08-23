@@ -15,3 +15,6 @@ This is based on a Nano type board but you can adapt it to use anything you have
 
 > [!CAUTION]
 > This project involves working with 220V AC and is therefore ~~kind of~~ dangerous. Proceed at your own risk.
+
+Licensed under GPL-V3
+Copyright (c) 20025 Ioannis Mamais
