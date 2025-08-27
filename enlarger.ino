@@ -35,16 +35,16 @@ const int LOAD = 10; //CS
 const int DATA_IN = 9;
 const int CLK = 6;
 
+// init the 8-digit display
 // dat, clk, load, num of MAX72xx modules
 LedControl lc=LedControl(DATA_IN, CLK, LOAD, 1);
 
-
 unsigned int time = 10;
 
-// time_c is for the countdown time, keeping the original time intact
+// time_c is for the countdown time, keeping the original time intact for reference
 unsigned int time_c;
 
-unsigned long buttonDelay = 400; // Minimum delay between button presses (in milliseconds)
+unsigned long buttonDelay = 300; // Minimum delay between button presses (in milliseconds)
 unsigned long lastButtonPress = 0; // Store the last time a button was pressed
 
 unsigned long previousMillis = 0; // Will store the last time the countdown updated
@@ -68,7 +68,7 @@ void setup() {
   // we have to do a wakeup call
   
   lc.shutdown(0,false);
-  // Set the brightness to a medium values 
+  // Set the brightness to lowest setting to avoid burning your paper 
   lc.setIntensity(0,0);
   // and clear the display 
   lc.clearDisplay(0);
@@ -85,7 +85,7 @@ void loop() {
   
   unsigned long currentMillis = millis();
 
-    // Prioritize countdown
+  // Prioritize countdown
   // If countdown is running, update the display every second
   if (countdownRunning) {
     
@@ -108,20 +108,25 @@ void loop() {
     }
 
   } else {
-    // Check if button is pressed to start the countdown
-    if (digitalRead(START_BUTTON) == LOW && time>0) {
-      debug("timer started");
-      // The countdown is started here and anything that needs to be initialized should be put in here
-      countdownRunning = true;
-      time_c = time;
-      startEnlarger();
-      previousMillis = millis(); // Start the countdown
-    }
+    
+    // Button handling
 
-    // Handle buttons 
     // Adding minimum delay to avoid registering the same press multiple times
     if (currentMillis - lastButtonPress > buttonDelay){
 
+      // Check start button
+      if (digitalRead(START_BUTTON) == LOW && time>0) {
+        // The countdown is started here and anything that needs to be initialized should be put in here
+        lastButtonPress = currentMillis;
+        debugln("timer started");
+        
+        countdownRunning = true; // start countdown
+        time_c = time;
+        startEnlarger();
+        previousMillis = millis(); 
+      }
+
+      // Check focus button
       if (digitalRead(FOCUS_BUTTON) == LOW){
         lastButtonPress = currentMillis;
 
@@ -129,6 +134,7 @@ void loop() {
         toggleEnlarger();
       }
       
+      // Check time buttons
       if (digitalRead(SUB_SEC) == LOW && time>0) {
         lastButtonPress = currentMillis;
         time--;
