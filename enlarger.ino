@@ -89,23 +89,24 @@ void loop() {
   // If countdown is running, update the display every second
   if (countdownRunning) {
     
-    // Only update every second
+    // countdown check
+    if (time_c < 1 || time_c > time) { // time_c > time is usefull to account for overflow since time variables are unsigned
+      countdownRunning = false; // Stop the countdown when it reaches 0
+      
+      // turn off enlarger head
+      stopEnlarger();
+
+      // reset the displayed time
+      time_c = time;
+    }
+
+    // Only update display clock every second
     if (currentMillis - previousMillis >= 1000) {
       previousMillis = currentMillis;
       time_c--;
-
-      if (time_c <= 0) {
-        countdownRunning = false; // Stop the countdown when it reaches 0
-        
-        // turn off enlarger head
-        stopEnlarger();
-
-        // reset the displayed time
-        time_c = time;
-      }
-
       displayTime(time_c); // Update the display
     }
+
   } else {
     // Check if button is pressed to start the countdown
     if (digitalRead(START_BUTTON) == LOW && time>0) {
