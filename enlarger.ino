@@ -74,8 +74,6 @@ void setup() {
   lc.clearDisplay(0);
 
   displayTime(time);
-  
-  
 
   Serial.begin(9600);
   debug("Setup complete");
@@ -202,6 +200,11 @@ void stopEnlarger(){
 }
 
 void toggleEnlarger(){
+  
+  // oneliner toggle
+  digitalWrite(RELAY_PIN, !digitalRead(RELAY_PIN));
+
+  /*
   if(digitalRead(RELAY_PIN) == HIGH){
     debug("set to low");
     digitalWrite(RELAY_PIN, LOW);
@@ -209,4 +212,5 @@ void toggleEnlarger(){
     debug("set to high");
     digitalWrite(RELAY_PIN, HIGH);
   }
+  */
 }
