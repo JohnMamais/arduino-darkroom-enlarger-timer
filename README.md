@@ -29,7 +29,17 @@ This is based on a Nano type board but you can adapt it to use anything you have
 - 2 x power outlets (for the enlarger and the safelight)
 - 6 x 2 position terminal blocks (optional, for the buttons)
 - 1 x Box large enough to hold everything
-- 1 x Breadboard
+- 1 x Breadboard (160mm x 100mm was somewhat comfortable)
+- thin wire, multiple colors, 5-12V
+- thick wire, multiple colors, 240V
+- Solder
+
+### Tools used
+- Soldering iron
+- Wire cutter
+- Lighter to strip the wires
+- **Optional** Non-plastic brush to clean mistakes
+- **Optional** UV Resin to insulate the 240V side of the board for safety (don't rush to do this step though because if something is wrong you'll have to break it open)
 
 ## Upcoming updates:
 - [X] Bill of materials
