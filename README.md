@@ -28,6 +28,7 @@ This is based on a Nano type board but you can adapt it to use anything you have
 - 1 x Arduino (I used Nano clone but feel free to modify anything you need to use your prefered board)
 - 2 x power outlets (for the enlarger and the safelight)
 - 6 x 2 position terminal blocks (optional, for the buttons)
+- 1 x Box large enough to hold everything
 - 1 x Breadboard
 
 ## Upcoming updates:
