@@ -31,7 +31,7 @@ This is based on a Nano type board but you can adapt it to use anything you have
 - 1 x Breadboard
 
 ## Upcoming updates:
-- [ ] Bill of materials
+- [X] Bill of materials
 - [X] Electronics schematics
 - [ ] 3d Model to 3D Print a box
 
