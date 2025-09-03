@@ -1,4 +1,4 @@
-# Arduino based Darkroom enlarger _(WIP)_
+# Arduino based Darkroom Enlarger Timer _(WIP)_
 
 Here you can find the code, electronics schematics and any 3d printing related to this project. <br/>
 An early proof of concept sketch on wokwi is available [here](https://wokwi.com/projects/437627156224860161). <br/>
