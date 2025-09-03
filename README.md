@@ -1,7 +1,7 @@
 # Arduino based Darkroom enlarger _(WIP)_
 
 Here you can find the code, electronics schematics and any 3d printing related to this project.
-
+Here you can find the original proof of concept sketch on wokwi: https://wokwi.com/projects/437627156224860161
 This is based on a Nano type board but you can adapt it to use anything you have on hand.
 
 ## Bill of Materials
