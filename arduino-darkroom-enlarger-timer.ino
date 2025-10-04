@@ -10,7 +10,7 @@
 #include <Wire.h>
 
 
-#define DEBUG 1
+#define DEBUG 0
 
 #if DEBUG
   #define debug(x) Serial.print(x)
