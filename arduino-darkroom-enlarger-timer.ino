@@ -46,6 +46,7 @@ unsigned int time_c;
 
 unsigned long buttonDelay = 300; // Minimum delay between button presses (in milliseconds)
 unsigned long lastButtonPress = 0; // Store the last time a button was pressed
+unsigned long currentMillis = 0; // current time
 
 unsigned long previousMillis = 0; // Will store the last time the countdown updated
 bool countdownRunning = false; // Flag to track whether countdown is running
@@ -81,7 +82,7 @@ void setup() {
 
 void loop() {
   
-  unsigned long currentMillis = millis();
+  currentMillis = millis();
 
   // Prioritize countdown
   // If countdown is running, update the display every second
@@ -93,6 +94,9 @@ void loop() {
       
       // turn off enlarger head
       stopEnlarger();
+
+      // start debounce timer
+      debounceStart();
 
       // reset the displayed time
       time_c = time;
@@ -110,12 +114,12 @@ void loop() {
     // Button handling
 
     // Adding minimum delay to avoid registering the same press multiple times
-    if (currentMillis - lastButtonPress > buttonDelay){
+    if (debounceOk()){
 
       // Check start button
       if (digitalRead(START_BUTTON) == LOW && time>0) {
         // The countdown is started here and anything that needs to be initialized should be put in here
-        lastButtonPress = currentMillis;
+        debounceStart()
         debugln("timer started");
         
         countdownRunning = true; // start countdown
@@ -126,7 +130,7 @@ void loop() {
 
       // Check focus button
       if (digitalRead(FOCUS_BUTTON) == LOW){
-        lastButtonPress = currentMillis;
+        debounceStart()
 
         debug("focus button pressed");
         toggleEnlarger();
@@ -134,22 +138,22 @@ void loop() {
       
       // Check time buttons
       if (digitalRead(SUB_SEC) == LOW && time>0) {
-        lastButtonPress = currentMillis;
+        debounceStart();
         time--;
         displayTime(time);
       }
       if (digitalRead(ADD_SEC) == LOW && time<9999){
-        lastButtonPress = currentMillis;
+        debounceStart();
         time++;
         displayTime(time);
       }
       if (digitalRead(SUB_STOP) == LOW && time>0){
-        lastButtonPress = currentMillis;
+        debounceStart();
         time/=2;
         displayTime(time);
       }
       if (digitalRead(ADD_STOP) == LOW && time<4999){
-        lastButtonPress = currentMillis;
+        debounceStart();
         time*=2;
         displayTime(time);
       }
@@ -186,6 +190,14 @@ void displayTime(int x) {
   for (int i = 0; i < 4; i++) {
     lc.setChar(0, i, ' ', false);          // Blank
   }
+}
+
+void debounceStart(){
+  lastButtonPress = currentMillis;
+}
+
+bool debounceOk(){
+  return currentMillis - lastButtonPress > buttonDelay;
 }
 
 void startEnlarger(){
