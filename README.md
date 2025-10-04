@@ -34,6 +34,7 @@ This is based on a Nano type board but you can adapt it to use anything you have
 - [X] Bill of materials
 - [X] Electronics schematics
 - [ ] 3d Model to 3D Print a box
+- [ ] Assign a button to stop the exposure once the enlarger has started
 
 <br/>
 <br/>
