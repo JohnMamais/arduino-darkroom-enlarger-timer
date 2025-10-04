@@ -119,7 +119,7 @@ void loop() {
       // Check start button
       if (digitalRead(START_BUTTON) == LOW && time>0) {
         // The countdown is started here and anything that needs to be initialized should be put in here
-        debounceStart()
+        debounceStart();
         debugln("timer started");
         
         countdownRunning = true; // start countdown
@@ -130,7 +130,7 @@ void loop() {
 
       // Check focus button
       if (digitalRead(FOCUS_BUTTON) == LOW){
-        debounceStart()
+        debounceStart();
 
         debug("focus button pressed");
         toggleEnlarger();
