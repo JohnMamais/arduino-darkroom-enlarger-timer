@@ -28,7 +28,18 @@ This is based on a Nano type board but you can adapt it to use anything you have
 - 1 x Arduino (I used Nano clone but feel free to modify anything you need to use your prefered board)
 - 2 x power outlets (for the enlarger and the safelight)
 - 6 x 2 position terminal blocks (optional, for the buttons)
-- 1 x Breadboard
+- 1 x Box large enough to hold everything (or the one I have for 3d printing)
+- 1 x Breadboard (160mm x 100mm was somewhat comfortable)
+- thin wire, multiple colors, 5-12V
+- thick wire, multiple colors, 240V
+- Solder
+
+### Tools used
+- Soldering iron
+- Wire cutter
+- Lighter to strip the wires
+- **Optional** Non-plastic brush to clean mistakes
+- **Optional** Wax from a candle to insulate the 240V side of the board for safety. (I used UV resin in my first make of the board and had to clean it out many times to correct mistakes)
 
 ## Upcoming updates:
 - [X] Bill of materials
